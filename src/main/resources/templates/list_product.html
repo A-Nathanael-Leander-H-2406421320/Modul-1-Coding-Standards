@@ -28,6 +28,9 @@
                 <a class="btn btn-sm btn-outline-success"
                    th:href="@{|/product/edit/${product.productId}|}"
                    th:attr="data-product-id=${product.productId}">Edit</a>
+                <a class="btn btn-sm btn-outline-danger"
+                   th:href="@{|/product/delete/${product.productId}|}"
+                   th:attr="data-product-id=${product.productId}">Delete</a>
             </td>
         </tr>
         </tbody>

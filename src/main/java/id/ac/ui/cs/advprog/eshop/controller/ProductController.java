@@ -58,4 +58,20 @@ public class ProductController {
         service.edit(product);
         return "redirect:list";
     }
+
+    @GetMapping("/delete/{productId}")
+    public String deleteProduct(@PathVariable("productId") String productId, Model model) {
+        Product product = service.findAll().stream()
+                .filter(p -> p.getProductId().equals(productId))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Invalid product Id:" + productId));
+        model.addAttribute("product", product);
+        return "delete_product";
+    }
+
+    @PostMapping("/delete")
+    public String deleteProductPost(@ModelAttribute Product product, Model model) {
+        service.delete(product);
+        return "redirect:list";
+    }
 }

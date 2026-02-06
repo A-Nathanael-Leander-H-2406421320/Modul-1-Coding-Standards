@@ -10,4 +10,6 @@ public interface ProductService {
     public List<Product> findAll();
 
     public Product edit(Product product);
+
+    public Product delete(Product product);
 }
