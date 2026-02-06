@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class ProductTest {
     Product product;
@@ -19,15 +20,18 @@ class ProductTest {
     @Test
     void testGetProductId() {
         assertEquals("eb558e9f-1c39-460e-8860-71af6af63bd6", this.product.getProductId());
+        assertNotEquals("eb558edf-1c39-460e-8860-71af6af63bd6", this.product.getProductId());
     }
 
     @Test
     void testGetProductName() {
         assertEquals("Sampo Cap Bambang", this.product.getProductName());
+        assertNotEquals("Sampo Cap Budi", this.product.getProductName());
     }
 
     @Test
     void testGetProductQuantity() {
         assertEquals(100, this.product.getProductQuantity());
+        assertNotEquals(50, this.product.getProductQuantity());
     }
 }
